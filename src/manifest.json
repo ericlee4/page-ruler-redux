@@ -5,7 +5,7 @@
 	"name": "__MSG_extName__",
 	"short_name": "__MSG_extShortName__",
 	"description": "__MSG_extDescription__",
-	"version": "1.1.0",
+	"version": "1.2.0",
 
 	"default_locale": "en",
 
@@ -39,7 +39,7 @@
 		"images/crosshair.png"
 	],
 
-	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+	"content_security_policy": "script-src 'self'; object-src 'self'",
 
 	"browser_action": {
 		"default_icon":   {
@@ -61,6 +61,11 @@
 				"default": "Alt+P"
 			}
 		}
-	}
+	},
 
+   "browser_specific_settings": {
+      "gecko": {
+         "id": "{e40b8b0f-c464-44d9-b2b9-f617032da54a}"
+      }
+   }
 }

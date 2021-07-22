@@ -2,14 +2,18 @@
 	"name": "page-ruler-redux",
 	"version": "1.0.0",
 	"description": "Page Ruler Redux",
-	"main": "index.js",
-	"repository": "https://github.com/Esteban-Rocha/page-ruler-redux",
-	"author": "Esteban Rocha <esteban@rocha.codes>",
-	"license": "MIT",
+   "scripts": {
+      "build": "sassc src/sass/content.scss src/content.css && web-ext build -s src"
+   },
+	"repository": "https://github.com/ericlee4/page-ruler-redux",
+	"author": "Eric Lee",
+	"license": "BSD-3-Clause",
 	"private": true,
-	"dependencies": {
+	"devDependencies": {
 		"eslint": "^5.9.0",
 		"eslint-config-airbnb-base": "^13.1.0",
-		"eslint-plugin-import": "^2.14.0"
+		"eslint-plugin-import": "^2.14.0",
+		"sass": "^1.35.2",
+		"web-ext": "^6.2.0"
 	}
 }

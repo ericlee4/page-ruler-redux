@@ -1,13 +1,5 @@
 (function() {
     /*
-     * Track pageview
-     */
-    chrome.runtime.sendMessage({
-        action:	'trackPageview',
-        page:	location.pathname + location.hash
-    });
-
-    /*
      * Locale
      */
     var p = document.querySelector('p');

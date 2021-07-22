@@ -1,14 +1,6 @@
 (function() {
 
     /*
-     * Track pageview
-     */
-    chrome.runtime.sendMessage({
-        action:	'trackPageview',
-        page:	'update.html'
-    });
-
-    /*
      * Locale
      */
     var elements = document.getElementsByTagName('*');
@@ -31,13 +23,6 @@
 			chrome.tabs.create({
 				url: this.href
 			});
-            // track link click
-            chrome.runtime.sendMessage(
-                {
-                    action:	'trackEvent',
-                    args:	['Link', 'click', this.href]
-                }
-            );
         }, false);
     }
 
@@ -83,14 +68,6 @@
 				'hide_update_tab': true
 			});
 
-			// send tracking after the setting is saved so it is sent
-			chrome.runtime.sendMessage(
-				{
-					action:	'trackEvent',
-					args:	['Settings', 'HideUpdateTab', '1']
-				}
-			);
-
 		}
 		else {
 
@@ -100,14 +77,6 @@
 			chrome.storage.sync.set({
 				'hide_update_tab': false
 			});
-
-			// send tracking after the setting is saved so it is sent
-			chrome.runtime.sendMessage(
-				{
-					action:	'trackEvent',
-					args:	['Settings', 'HideUpdateTab', '0']
-				}
-			);
 
 		}
 

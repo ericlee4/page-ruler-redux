@@ -1,13 +1,4 @@
 (function() {
-
-	/*
-	 * Track pageview
-	 */
-	chrome.runtime.sendMessage({
-		action:	'trackPageview',
-		page:	'options.html'
-	});
-
 	/*
 	 * Locale
 	 */
@@ -23,61 +14,7 @@
 	 * Fields
 	 */
 
-	/*
-	 * Statistics
-	 */
-	var statisticsField = document.getElementById('statistics');
-
-	// populate
-	chrome.storage.sync.get('statistics', function(items) {
-		statisticsField.checked = !!items.statistics;
-	});
-
 	// change
-	statisticsField.addEventListener('change', function(e) {
-
-		// disabling option
-		if (!this.checked) {
-
-			// track event before saving the setting so we can see how many people disable it
-			chrome.runtime.sendMessage(
-				{
-					action:	'trackEvent',
-					args:	['Settings', 'Statistics', '0']
-				},
-				function() {
-
-					console.log('disabling statistics');
-
-					// save setting
-					chrome.storage.sync.set({
-						'statistics': false
-					});
-
-				}
-			);
-		}
-		// enabling option
-		else {
-
-			console.log('enabling statistics');
-
-			// save setting
-			chrome.storage.sync.set({
-				'statistics': true
-			}, function() {
-
-				// send tracking after the setting is saved so it is sent
-				chrome.runtime.sendMessage(
-					{
-						action:	'trackEvent',
-						args:	['Settings', 'Statistics', '1']
-					}
-				)
-			});
-		}
-
-	}, this);
 
 	/*
 	 * Update tab
@@ -102,14 +39,6 @@
 				'hide_update_tab': true
 			});
 
-			// send tracking after the setting is saved so it is sent
-			chrome.runtime.sendMessage(
-				{
-					action:	'trackEvent',
-					args:	['Settings', 'HideUpdateTab', '1']
-				}
-			);
-
 		}
 		else {
 
@@ -119,14 +48,6 @@
 			chrome.storage.sync.set({
 				'hide_update_tab': false
 			});
-
-			// send tracking after the setting is saved so it is sent
-			chrome.runtime.sendMessage(
-				{
-					action:	'trackEvent',
-					args:	['Settings', 'HideUpdateTab', '0']
-				}
-			);
 
 		}
 
