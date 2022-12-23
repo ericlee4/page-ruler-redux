@@ -1,6 +1,6 @@
 {
 	"name": "page-ruler-redux",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "Page Ruler Redux",
 	"scripts": {
 		"build": "sassc src/sass/content.scss src/content.css && web-ext build -s src"
