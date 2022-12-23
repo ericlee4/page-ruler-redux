@@ -1,7 +1,5 @@
 {
-
-	"toolbarColor": {
-		"message":	"Colour"
-	}
-
+  "toolbarColor": {
+    "message": "Colour"
+  }
 }
